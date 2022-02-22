@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import WeatherBox from "./components/WeatherBox";
+import { useState, useEffect } from "react";
+import Loading from "./components/Loading";
+import SearchBox from "./components/SearchBox";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [city, setCity] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setCity(`${position.coords.latitude},${position.coords.longitude}`);
+      setLoading(false);
+    });
+  }, []);
+  if (loading) {
+    return <Loading />;
+  } else {
+    return (
+      <div className="content">
+        <SearchBox handleSearch={setCity} message={message} />
+        <WeatherBox query={city} setMessage={setMessage} />
+      </div>
+    );
+  }
 }
 
 export default App;
