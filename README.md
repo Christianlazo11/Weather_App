@@ -3,7 +3,7 @@
     A React Web Page Designed And Created For Christian Lazo
     Api used: https://www.weatherapi.com/
 
-[![reactweatherapp2050-netlify-app-Desktop.png](https://i.postimg.cc/sX5G5JTV/reactweatherapp2050-netlify-app-Desktop.png)](https://postimg.cc/LY6spjd7)
+![alt text](https://github.com/christianlazo2020/React-Weatherapp/blob/main/src/img_github/weatherapp.png)
 
 ## Built With
 
