@@ -10,6 +10,7 @@
     - React
     - Bootstrap
     - Css
+    - React Icons
 
 ## License
 
